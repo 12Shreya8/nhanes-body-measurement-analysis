@@ -1,73 +1,139 @@
-# NHANES Body Measurement Analysis
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/12Shreya8/nhanes-body-measurement-analysis/blob/main/capstone(1).ipynb)
 
-A data analysis project exploring multidimensional body measurement data from the
-National Health and Nutrition Examination Survey (NHANES) 2020 dataset using NumPy
-and SciPy.
+# 📊 NHANES Body Measurement Analysis
 
----
-
-## Overview
-
-This project analyses real-world health data collected from adult male and female
-participants across the United States. The goal is to uncover patterns, distributions,
-and statistical differences in body measurements between the two groups using
-numerical computing and data visualisation techniques.
+A statistical data analysis project exploring multidimensional body measurement data from the **National Health and Nutrition Examination Survey (NHANES) 2020** dataset — comparing male and female anthropometric patterns using NumPy and SciPy.
 
 ---
 
-## Dataset
+## 📌 Problem Statement
 
-- **Source:** National Health and Nutrition Examination Survey (NHANES) 2020
-- **Population:** Adult males and females in the United States
-- **Features (7 body measurements):**
-  - Weight (kg)
-  - Standing Height (cm)
-  - Upper Arm Length (cm)
-  - Upper Leg Length (cm)
-  - Arm Circumference (cm)
-  - Hip Circumference (cm)
-  - Waist Circumference (cm)
+Understanding how body measurements differ across biological sex and how key indicators like BMI, waist-to-height ratio, and waist-to-hip ratio relate to each other is critical for population health research. This project performs a full numerical and visual analysis of NHANES 2020 data to uncover these patterns.
 
 ---
 
-## What I Did
+## 📊 Dataset
 
-- Loaded and structured the dataset as NumPy matrices for efficient numerical computation
-- Visualised weight distributions for male and female groups using histograms
-- Performed statistical comparison between male and female body measurements
-- Analysed skewness and distribution shape across measurement categories
+- **Source:** [NHANES 2020 · gagolews/teaching-data](https://github.com/gagolews/teaching-data)
+- **Loaded directly via URL** — no local CSV needed
+- **Features:** 7 body measurements per participant
+- **Groups:** Adult males and adult females (separate datasets)
 
----
-
-## Tools & Libraries
-
-- Python 3
-- NumPy
-- Matplotlib
-- SciPy
-
----
-
-## Key Findings
-
-- Male participants generally showed higher body weights compared to female participants
-- Both distributions exhibit slight right skewness, indicating a small proportion of
-  individuals with significantly higher body weights
-- Statistical analysis revealed measurable differences across most body measurement
-  categories between the two groups
+| Column | Measurement |
+|---|---|
+| 1 | Weight (kg) |
+| 2 | Standing height (cm) |
+| 3 | Upper arm length (cm) |
+| 4 | Upper leg length (cm) |
+| 5 | Arm circumference (cm) |
+| 6 | Hip circumference (cm) |
+| 7 | Waist circumference (cm) |
 
 ---
 
-## How to Run
+## 🔍 Analysis Pipeline
 
-1. Clone this repository
-2. Install dependencies: `pip install numpy matplotlib scipy`
-3. Open `capstone_1.ipynb` in Jupyter Notebook or Google Colab
-4. Run all cells in order
+```
+Load datasets via URL (male + female)
+        │
+        ▼
+Matrix Construction (NumPy arrays)
+        │
+        ▼
+Weight Distribution — Histograms
+        │
+        ▼
+Weight Comparison — Boxplots
+        │
+        ▼
+Summary Statistics (Mean, Median, Std, Skewness)
+        │
+        ▼
+BMI Computation + Column Augmentation
+        │
+        ▼
+Z-Score Standardisation
+        │
+        ▼
+Correlation Analysis (Pearson + Spearman)
+        │
+        ▼
+Scatterplot Matrix (Height, Weight, Waist, Hip, BMI)
+        │
+        ▼
+Ratio-Based Measures (WtH + WHR)
+        │
+        ▼
+Extreme BMI Analysis
+```
 
 ---
 
-## About
+## 📈 Key Findings
 
-This project was completed as part of a data science capstone to build hands-on
-experience with real-world health datasets and numerical analysis using NumPy.
+- **Male participants** have higher median body weight and greater dispersion than females
+- Both distributions show **mild right skewness** — small number of high-weight individuals
+- **Weight, waist, hip circumference, and BMI** are strongly positively correlated
+- **Height shows weak correlation with BMI** — body girth is a stronger driver than stature
+- **Waist-to-height and waist-to-hip ratios** differ notably between sexes, reflecting differences in fat distribution patterns
+- Standardised z-scores reveal that individuals with extreme BMI values show consistent patterns across multiple body measurements
+
+---
+
+## 🛠️ Tech Stack
+
+![Python](https://img.shields.io/badge/Python-3.10-blue?logo=python)
+![NumPy](https://img.shields.io/badge/NumPy-Numerical-blue?logo=numpy)
+![SciPy](https://img.shields.io/badge/SciPy-Statistics-8CAAE6?logo=scipy)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-Visualization-orange)
+![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange?logo=jupyter)
+
+- **Data:** `numpy.genfromtxt` (direct URL loading)
+- **Statistics:** `scipy.stats` — skewness, z-scores, Pearson, Spearman
+- **Visualization:** `matplotlib.pyplot` — histograms, boxplots, scatterplot matrix
+
+---
+
+## 🚀 How to Run
+
+**Option A — Run in Colab (recommended, no setup needed):**
+
+Click the badge at the top ↑
+
+**Option B — Run locally:**
+
+```bash
+git clone https://github.com/12Shreya8/nhanes-body-measurement-analysis.git
+cd nhanes-body-measurement-analysis
+pip install numpy scipy matplotlib
+jupyter notebook "capstone(1).ipynb"
+```
+
+No dataset download needed — data loads automatically from the web.
+
+---
+
+## 🗂️ Repository Structure
+
+```
+nhanes-body-measurement-analysis/
+│
+├── capstone(1).ipynb     # Full analysis notebook with outputs
+└── README.md
+```
+
+---
+
+## 🔮 Future Work
+
+- Extend BMI computation to male participants
+- Add multivariate regression to predict BMI from body measurements
+- Interactive dashboard with Streamlit or Plotly
+- Include additional NHANES survey years for longitudinal analysis
+
+---
+
+## 👩‍💻 Author
+
+**Shreya** — CS Engineering student with a focus on AI/ML & Data Science  
+[GitHub](https://github.com/12Shreya8)         · [LinkedIn](https://linkedin.com/in/shreya-yergol)
